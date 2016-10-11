@@ -5,7 +5,6 @@ public class CanvasFollower : MonoBehaviour
 {
     [SerializeField]
     protected Transform _target;
-
     private Vector3 _offSet;
 
 
@@ -20,7 +19,10 @@ public class CanvasFollower : MonoBehaviour
     {
         if (_target == null)
             return;
-        this.transform.position = _target.position + _offSet;
+        var forward = _offSet;
+        this.transform.position = _target.position + forward;
+        transform.LookAt(_target);
+        transform.Rotate(Vector3.up,180);
     }
 
 }
