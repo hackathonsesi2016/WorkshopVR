@@ -122,7 +122,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 483602}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!4 &444972
 Transform:
   m_ObjectHideFlags: 1
@@ -134,7 +134,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 483602}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &483602
 Transform:
   m_ObjectHideFlags: 1
@@ -145,9 +145,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 410052}
   - {fileID: 444972}
   - {fileID: 484142}
-  - {fileID: 410052}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &484142
@@ -163,7 +163,7 @@ Transform:
   - {fileID: 498624}
   - {fileID: 22466468}
   m_Father: {fileID: 483602}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &498624
 Transform:
   m_ObjectHideFlags: 1
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
-  m_ForceModuleActive: 1
+  m_ForceModuleActive: 0
 --- !u!114 &11448536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
+  m_IgnoreReversedGraphics: 0
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrModeEnabled: 1
-  distortionCorrectionEnabled: 1
+  distortionCorrectionEnabled: 0
   neckModelScale: 0
   autoUntiltHead: 0
   UseUnityRemoteInput: 0
@@ -582,6 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrModeOnly: 0
+  SimulateClickBtn: Submit
 --- !u!114 &11499698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -662,8 +663,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.55, y: 1.2}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 0.224, y: 0.978}
+  m_SizeDelta: {x: 115.291, y: 94.364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &100100000
 Prefab:
