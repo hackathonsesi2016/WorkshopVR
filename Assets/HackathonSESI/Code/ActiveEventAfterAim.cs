@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ActiveEventAfterLook : MonoBehaviour
+public class ActiveEventAfterAim : MonoBehaviour
 {
-    [SerializeField]
-    protected float _activeDelay = 2;
 
+    public float TimeToTrigger = 2;
     private bool _looking = false;
     private bool _canFire = true;
     private float _currentTime = 0;
     private EventTrigger _eventTrigger;
+
+    public AimEvent OnAim;
+    public AimEvent OnUnAim;
+    public AimTriggerEvent OnTriggerAim;
 
     protected void Awake()
     {
@@ -37,7 +41,7 @@ public class ActiveEventAfterLook : MonoBehaviour
         if (!_looking)
             return;
         _currentTime += Time.deltaTime;
-        if (_currentTime >= _activeDelay)
+        if (_currentTime >= TimeToTrigger)
         {
             InternalTriggerLook();
         }
@@ -49,27 +53,33 @@ public class ActiveEventAfterLook : MonoBehaviour
             return;
         _canFire = false;
         _currentTime = 0;
-        OnTriggerLook();
+        OnTriggerAim.Invoke(this.gameObject);
     }
 
-    public virtual void OnTriggerLook()
+    private void OnLookObject(BaseEventData e)
     {
-        Debug.Log("Active Object with Look. " + gameObject.name);
-    }
-
-    public void OnLookObject(BaseEventData e)
-    {
-        //Debug.Log("Look object: " + gameObject.name);
         _looking = true;
+        OnAim.Invoke(e);
     }
 
-    public void OnUnLookObject(BaseEventData e)
+    private void OnUnLookObject(BaseEventData e)
     {
-        //Debug.Log("UnLook object: " + gameObject.name);
         _looking = false;
         _canFire = true;
         _currentTime = 0;
+        OnUnAim.Invoke(e);
     }
 
+    [System.Serializable]
+    public class AimEvent : UnityEvent<BaseEventData>
+    {
+
+    }
+
+    [System.Serializable]
+    public class AimTriggerEvent : UnityEvent<GameObject>
+    {
+
+    }
 
 }
